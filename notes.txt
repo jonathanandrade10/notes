@@ -4,9 +4,16 @@ Hive
     ALTER TABLE  schema.table SET SERDEPROPERTIES ('serialization.encoding'='UTF-8');
     TBLPROPERTIES ( 'store.charset'='ISO-8859-1', 
       'retrieve.charset'='ISO-8859-1');
-    Update metadata partition in hive MSCK REPAIR TABLE <tablename>;
-    
+  
+  Update metadata partition
+    MSCK REPAIR TABLE <tablename>;
+  
+  Load Data
+  
+  load data inpath 'hdfs_path' into  schema.table;
+  load data local inpath 'local_path' overwrite into table categories;
 
+  
 Map Reduce queue
 set mapred.job.queue.name=root.abc;
 
