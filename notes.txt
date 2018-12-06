@@ -27,4 +27,4 @@ https://www.tecmint.com/convert-files-to-utf-8-encoding-in-linux/
 Pandas
 
 read csv and change Nan to null for string reading.
-df = pandas.read_csv(self.local_dir + csv_file, sep=';', lineterminator='\n', error_bad_lines=False, keep_default_na=False)
+df = pandas.read_csv(csv_file, sep=';', lineterminator='\n', error_bad_lines=False, keep_default_na=False)
