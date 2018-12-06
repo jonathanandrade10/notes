@@ -21,4 +21,4 @@ Iconv
 
 iconv --from-code=UTF-8 --to-code=ISO-8859-1 utf8_tst.csv > iso88591_tst.csv
 iconv --from-code=UTF-8 --to-code=ascii//TRANSLIT with_special_char.csv > without_special_char.csv
-
+https://www.tecmint.com/convert-files-to-utf-8-encoding-in-linux/
