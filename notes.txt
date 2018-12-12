@@ -12,6 +12,11 @@ Hive
   
   load data inpath 'hdfs_path' into  schema.table;
   load data local inpath 'local_path' overwrite into table categories;
+  
+  Create table as another
+  
+  CREATE TABLE yourtable
+  LIKE table2;
 
   
 Map Reduce queue
