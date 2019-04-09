@@ -43,3 +43,12 @@ tail -f /proc/<pid>/fd/1
 
 ## Apache Airflow
 
+**Airflow 1.8 update** - **Bitshift Composition**
+
+Traditionally, operator relationships are set with the set_upstream() and set_downstream() methods. In Airflow 1.8, this can be done with the Python **bitshift operators** >> and <<. The following four statements are all functionally equivalent:
+
+`op1 >> op2
+op1.set_downstream(op2)
+
+op2 << op1
+op2.set_upstream(op1)`
