@@ -52,3 +52,16 @@ op1.set_downstream(op2)
 
 op2 << op1
 op2.set_upstream(op1)`
+
+## Big Query
+
+Strongly avoid run functions or parse in a partition_date field, it may cause a Full Scan on the table.
+
+select * from dataset.table t
+where format_date('%Y%m%d', t.partition_date) = '20190618' --- 4.6TB
+
+
+Change the function or parse to the value not on the partition field. 
+
+select * from dataset.table t
+where t.partition_date = PARSE_DATE('%Y%m%d', '20190618') ---87GB
