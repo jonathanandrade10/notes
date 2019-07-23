@@ -70,7 +70,7 @@ where t.partition_date = PARSE_DATE('%Y%m%d', '20190618') ---87GB
 Loop replicating data to other range of data
 https://stackoverflow.com/questions/54481850/do-loop-in-bigquery
 
-`#standardSQL
+#standardSQL
 WITH `project.dataset.table` AS (
   SELECT 'TV' Type, '20180101' Start_Date, '20180131' End_Date, 10000 Total_Spend UNION ALL
   SELECT 'Radio', '20180107', '20180207', 5000 
@@ -78,4 +78,4 @@ WITH `project.dataset.table` AS (
 SELECT type, FORMAT_DATE('%Y%m%d', day) day, 
   ROUND(Total_Spend / ARRAY_LENGTH(GENERATE_DATE_ARRAY(PARSE_DATE('%Y%m%d', Start_Date), PARSE_DATE('%Y%m%d', End_Date))), 2) Spend
 FROM `project.dataset.table`, UNNEST(GENERATE_DATE_ARRAY(PARSE_DATE('%Y%m%d', Start_Date), PARSE_DATE('%Y%m%d', End_Date))) day
--- ORDER BY Type, day`
+-- ORDER BY Type, day
