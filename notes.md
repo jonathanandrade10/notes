@@ -53,6 +53,10 @@ op1.set_downstream(op2)
 op2 << op1
 op2.set_upstream(op1)`
 
+TemplateNotFound error when running simple Airflow BashOperator
+https://stackoverflow.com/questions/42147514/templatenotfound-error-when-running-simple-airflow-bashoperator
+https://cwiki.apache.org/confluence/display/AIRFLOW/Common+Pitfalls
+
 ## Big Query
 
 Strongly avoid run functions or parse in a partition_date field, it may cause a Full Scan on the table.
