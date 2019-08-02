@@ -1,3 +1,10 @@
+## Spark
+Force caching and checking if the dataframe was cached
+https://medium.com/@gaga19900329/force-caching-spark-dataframes-84d32730a21
+
+when and why cache a dataframe
+https://stackoverflow.com/questions/44156365/when-to-cache-a-dataframe
+
 ## Hive
   Serialization Encoding
     ALTER TABLE  schema.table SET SERDEPROPERTIES ('serialization.encoding'='ISO-8859-1');
