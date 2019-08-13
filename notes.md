@@ -64,6 +64,9 @@ TemplateNotFound error when running simple Airflow BashOperator
 https://stackoverflow.com/questions/42147514/templatenotfound-error-when-running-simple-airflow-bashoperator
 https://cwiki.apache.org/confluence/display/AIRFLOW/Common+Pitfalls
 
+Airflow tricks
+https://medium.com/datareply/airflow-lesser-known-tips-tricks-and-best-practises-cf4d4a90f8f
+
 ## Big Query
 
 Strongly avoid run functions or parse in a partition_date field, it may cause a Full Scan on the table.
