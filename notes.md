@@ -93,3 +93,19 @@ SELECT type, FORMAT_DATE('%Y%m%d', day) day,
   ROUND(Total_Spend / ARRAY_LENGTH(GENERATE_DATE_ARRAY(PARSE_DATE('%Y%m%d', Start_Date), PARSE_DATE('%Y%m%d', End_Date))), 2) Spend
 FROM `project.dataset.table`, UNNEST(GENERATE_DATE_ARRAY(PARSE_DATE('%Y%m%d', Start_Date), PARSE_DATE('%Y%m%d', End_Date))) day
 -- ORDER BY Type, day
+
+Select * except nested column or specific field inside the nested field
+
+Exemple of select * except a nested column payload
+SELECT * except (payload) FROM `bigquery-public-data.samples.github_nested` LIMIT 1000
+
+Example of select * except a especific field inside the nested column
+SELECT * REPLACE (
+  ARRAY(SELECT AS STRUCT * EXCEPT (old_mode) FROM UNNEST(difference)) AS difference
+)
+FROM `bigquery-public-data.github_repos.commits`
+LIMIT 1000;
+
+https://stackoverflow.com/questions/41019739/bigquery-select-except-nested-column
+
+https://stackoverflow.com/questions/41021823/bigquery-select-except-two-columns
