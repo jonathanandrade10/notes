@@ -94,7 +94,7 @@ SELECT type, FORMAT_DATE('%Y%m%d', day) day,
 FROM `project.dataset.table`, UNNEST(GENERATE_DATE_ARRAY(PARSE_DATE('%Y%m%d', Start_Date), PARSE_DATE('%Y%m%d', End_Date))) day
 -- ORDER BY Type, day
 
-Select * except nested column or specific field inside the nested field
+**Select all except nested column or specific field inside the nested field**
 
 Exemple of select * except a nested column payload
 SELECT * except (payload) FROM `bigquery-public-data.samples.github_nested` LIMIT 1000
