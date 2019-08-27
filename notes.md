@@ -69,7 +69,7 @@ https://medium.com/datareply/airflow-lesser-known-tips-tricks-and-best-practises
 
 ## Big Query
 
-Strongly avoid run functions or parse in a partition_date field, it may cause a Full Scan on the table.
+**Strongly avoid run functions or parse in a partition_date field**, it may cause a Full Scan on the table.
 
 select * from dataset.table t
 where format_date('%Y%m%d', t.partition_date) = '20190618' --- 4.6TB
@@ -81,7 +81,7 @@ select * from dataset.table t
 where t.partition_date = PARSE_DATE('%Y%m%d', '20190618') ---87GB
 
 
-Loop replicating data to other range of data
+**Loop replicating data to other range of data**
 https://stackoverflow.com/questions/54481850/do-loop-in-bigquery
 
 #standardSQL
