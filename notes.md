@@ -109,3 +109,28 @@ LIMIT 1000;
 https://stackoverflow.com/questions/41019739/bigquery-select-except-nested-column
 
 https://stackoverflow.com/questions/41021823/bigquery-select-except-two-columns
+
+**Changing a nested field**
+
+Data STRUCT
+
+nested_field.list.element.columns-with-data
+
+STRUCT list
+array[
+STRUCT element
+STRUCT <fields>
+]
+
+SELECT
+ARRAY(SELECT AS STRUCT
+        	field1,
+        	field2,
+        	CAST(null as String) as field3,
+        	field_4 as field4
+          FROM UNNEST
+              ((select ARRAY(select nested.element as new_nested from `dataset.table`
+                CROSS JOIN UNNEST (nested_field.list) as nested) as new_nested)))
+  as proposedprices,
+  cast(tenant as STRING) as tenant_id,
+  _PARTITIONTIME as partition_date
