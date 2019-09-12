@@ -112,6 +112,8 @@ https://stackoverflow.com/questions/41021823/bigquery-select-except-two-columns
 
 **Changing a nested field**
 
+https://medium.com/firebase-developers/using-the-unnest-function-in-bigquery-to-analyze-event-parameters-in-analytics-fb828f890b42
+
 Data STRUCT
 
 nested_field.list.element.columns-with-data
