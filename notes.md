@@ -1,3 +1,23 @@
+## Hadoop
+Hadoop jceks file
+
+`hadoop credential create password.alias -value PASSwordvalue -provider jceks://hdfs/tmp/test.jceks`
+
+`hadoop credential create password.alias -provider jceks://hdfs/tmp/test.jceks` - This option is more secure, terminal will ask a password.
+
+Get jceks password as string.
+
+`
+import org.apache.hadoop.security.alias.CredentialProviderFactory
+val conf = new org.apache.hadoop.conf.Configuration()
+val alias = "password.alias"
+val jceksPath = "jceks://hdfs/tmp/test.jceks"
+conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
+val sqoopPwd = conf.getPassword(alias).mkString
+`
+
+
+
 ## Spark
 Force caching and checking if the dataframe was cached
 https://medium.com/@gaga19900329/force-caching-spark-dataframes-84d32730a21
