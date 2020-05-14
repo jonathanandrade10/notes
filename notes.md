@@ -16,6 +16,59 @@ conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
 val sqoopPwd = conf.getPassword(alias).mkString
 `
 
+
+**Hadoop and S3**
+
+There are some issues with hadoop, spark and S3 that we need to bear in mind when working with it.
+
+**Issues**: 
+
+**S3 secret key with slash.**
+Change the aws secret key and generate one without slash.
+
+**S3 bucket name with dots.**
+https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html
+For best compatibility, we recommend that you avoid using dots (.) in bucket names
+
+
+**S3 files/path with = or spaces.**
+Remove these specials chars inside the path or file name.
+
+**Parquet files being write only in region eu-west-1(Ireland)**
+https://hadoop.apache.org/docs/r3.1.2/hadoop-aws/tools/hadoop-aws/troubleshooting_s3a.html#a.E2.80.9CBad_Request.E2.80.9D_exception_when_working_with_AWS_S3_Frankfurt.2C_Seoul.2C_or_other_.E2.80.9CV4.E2.80.9D_endpoint
+
+S3 Frankfurt and Seoul only support the V4 authentication API.
+
+Requests using the V2 API will be rejected with 400 Bad Request
+https://stackoverflow.com/questions/36647087/using-s3-frankfurt-with-spark
+
+`
+System.setProperty("com.amazonaws.services.s3.enableV4", "true")
+hadoopConf.set("fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
+hadoopConf.set("com.amazonaws.services.s3.enableV4", "true")
+hadoopConf.set("fs.s3a.endpoint", "s3." + region + ".amazonaws.com")
+`
+
+
+**Hadoop distcp to S3**
+
+`
+hadoop distcp \
+  -Dfs.s3a.access.key=your_access_key \
+  -Dfs.s3a.secret.key=your_secret_key \
+  -Dfs.s3a.fast.upload=true \
+  /yourpath/something.parquet s3a://bucket-name/path/ 
+`
+
+`
+hadoop distcp \
+  -Dfs.s3a.access.key=your_access_key \
+  -Dfs.s3a.secret.key=your_secret_key \
+  -Dfs.s3a.fast.upload=true \
+  /yourpath/something.parquet s3a://bucket-name/path/custom_name.parquet 
+`
+
+
 ## Impala
 
 Adding a new column into a nested field (Struct). This also could be used to change the type or name of the fields, it recreates the nested structure again with the new values.
