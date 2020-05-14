@@ -16,6 +16,15 @@ conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
 val sqoopPwd = conf.getPassword(alias).mkString
 `
 
+## Impala
+
+Adding a new column into a nested field (Struct). This also could be used to change the type or name of the fields, it recreates the nested structure again with the new values.
+
+`
+ALTER TABLE db.table_name 
+CHANGE column column STRUCT<column1:STRUCT<final_column:STRING>>
+`
+
 
 
 ## Spark
