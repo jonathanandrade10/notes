@@ -27,7 +27,7 @@
 
 
 
-**Remove last commit**
+**Remove last commit from origin(remote) repo**
 
 `git push -f origin HEAD^:master`
 
@@ -35,10 +35,10 @@
 
 **Commit setting author**
 
-`git commit --author="jonathanandrade10@gmail.com<jonathanandrade10@gmail.com>" -m "New comment"`
+`git commit --author="jonathanandrade10@gmail.com<jonathanandrade10@gmail.com>" -m "Commit msg"`
 
 
 
 **Change last commit message**
 
-`git commit --amend "New message"`
+`git commit --amend "New commit message"`
