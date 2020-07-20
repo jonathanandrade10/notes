@@ -35,7 +35,7 @@
 
 **Commit setting author**
 
-`git commit --author="jonathanandrade10@gmail.com<jonathanandrade10@gmail.com>" -m "Adding first Protoc_compiler version"`
+`git commit --author="jonathanandrade10@gmail.com<jonathanandrade10@gmail.com>" -m "New comment"`
 
 
 
