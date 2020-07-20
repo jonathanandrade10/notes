@@ -1,4 +1,4 @@
-Git quick notes
+## Git quick notes
 
 
 **Show user of the repo**
