@@ -9,21 +9,23 @@ reload the variables
 
 ## Create SSH Keys
 
-ED25519 SSH keys
+**ED25519 SSH keys**
 
 `ssh-keygen -t ed25519 -C "<comment>"`
 `ssh-keygen -t ed25519` - without comment by default the user@machine is set at the end of the key content.
 
 
-RSA SSH keys
+**RSA SSH keys**
 
 `ssh-keygen -t rsa -b 2048 -C "email@example.com"`
 
 
-Default folder to add ssh keys 
+**Default folder to add ssh keys **
+
 `/home/user/.ssh/id_rsa`
 
-Copy the key to the clipboard 
+**Copy the key to the clipboard **
+
 `pbcopy < ~/.ssh/id_ed25519.pub`
 
 **Having multiple keys u must create a config file**
@@ -43,7 +45,7 @@ Host myother realname2.example.org
     User remoteusername
     `
     
-Git multiple keys config
+**Git multiple keys config**
 `
 #git account
 
@@ -55,6 +57,6 @@ Host git git-server.com
 	      IdentityFile ~/.ssh/id_rsa
 `
 
-Testing on git
+**Testing git**
 
-`ssh -T git@gitlab.com`
+`ssh -T git@git-server.com`
