@@ -7,14 +7,14 @@ Hadoop jceks file
 
 Get jceks password as string.
 
-`
+```
 import org.apache.hadoop.security.alias.CredentialProviderFactory
 val conf = new org.apache.hadoop.conf.Configuration()
 val alias = "password.alias"
 val jceksPath = "jceks://hdfs/tmp/test.jceks"
 conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
 val sqoopPwd = conf.getPassword(alias).mkString
-`
+```
 
 
 **Hadoop and S3**
@@ -42,41 +42,41 @@ S3 Frankfurt and Seoul only support the V4 authentication API.
 Requests using the V2 API will be rejected with 400 Bad Request
 https://stackoverflow.com/questions/36647087/using-s3-frankfurt-with-spark
 
-`
+```
 System.setProperty("com.amazonaws.services.s3.enableV4", "true")
 hadoopConf.set("fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
 hadoopConf.set("com.amazonaws.services.s3.enableV4", "true")
 hadoopConf.set("fs.s3a.endpoint", "s3." + region + ".amazonaws.com")
-`
+```
 
 
 **Hadoop distcp to S3**
 
-`
+```
 hadoop distcp \
   -Dfs.s3a.access.key=your_access_key \
   -Dfs.s3a.secret.key=your_secret_key \
   -Dfs.s3a.fast.upload=true \
   /yourpath/something.parquet s3a://bucket-name/path/ 
-`
+```
 
-`
+```
 hadoop distcp \
   -Dfs.s3a.access.key=your_access_key \
   -Dfs.s3a.secret.key=your_secret_key \
   -Dfs.s3a.fast.upload=true \
   /yourpath/something.parquet s3a://bucket-name/path/custom_name.parquet 
-`
+```
 
 
 ## Impala
 
 Adding a new column into a nested field (Struct). This also could be used to change the type or name of the fields, it recreates the nested structure again with the new values.
 
-`
+```
 ALTER TABLE db.table_name 
 CHANGE column column STRUCT<column1:STRUCT<final_column:STRING>>
-`
+```
 
 
 
@@ -136,11 +136,13 @@ tail -f /proc/<pid>/fd/1
 
 Traditionally, operator relationships are set with the set_upstream() and set_downstream() methods. In Airflow 1.8, this can be done with the Python **bitshift operators** >> and <<. The following four statements are all functionally equivalent:
 
-`op1 >> op2
+```
+op1 >> op2
 op1.set_downstream(op2)
 
 op2 << op1
-op2.set_upstream(op1)`
+op2.set_upstream(op1)
+```
 
 TemplateNotFound error when running simple Airflow BashOperator
 https://stackoverflow.com/questions/42147514/templatenotfound-error-when-running-simple-airflow-bashoperator
