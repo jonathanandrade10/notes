@@ -1,4 +1,4 @@
-Create variables on Mac
+## Create variables on Mac
 
 `vi ~/.bash_profile`
 
@@ -7,7 +7,7 @@ reload the variables
 `source ~/.bash_profile`
 
 
-Create SSH Keys
+## Create SSH Keys
 
 ED25519 SSH keys
 
