@@ -74,5 +74,9 @@ IdentityFile ~/.ssh/id_rsa
 
 **To add keys to agent:**
 
-```ssh-add <path_to_key> 
-eg(ssh-add ~/.ssh/id_rsa)```
+```
+ssh-add <path_to_key> 
+eg(ssh-add ~/.ssh/id_rsa)
+```
+
+
