@@ -67,3 +67,12 @@ IdentityFile ~/.ssh/id_rsa
 
 
 ```ssh -T git@git-server.com```
+
+**To check if keys are loaded:**
+
+```ssh-add -l```
+
+**To add keys to agent:**
+
+```ssh-add <path_to_key> 
+eg(ssh-add ~/.ssh/id_rsa)```
