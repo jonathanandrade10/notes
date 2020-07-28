@@ -17,7 +17,7 @@ val sqoopPwd = conf.getPassword(alias).mkString
 ```
 
 
-**Hadoop and S3**
+## Hadoop and S3
 
 There are some issues with hadoop, spark and S3 that we need to bear in mind when working with it.
 
@@ -90,9 +90,10 @@ https://stackoverflow.com/questions/44156365/when-to-cache-a-dataframe
 ## Hive
   Serialization Encoding
   ```
+    --ISO-8859-1
     ALTER TABLE  schema.table SET SERDEPROPERTIES ('serialization.encoding'='ISO-8859-1');
-    ```
-    ```
+    
+    --utf8
     ALTER TABLE  schema.table SET SERDEPROPERTIES ('serialization.encoding'='UTF-8');
     TBLPROPERTIES ( 'store.charset'='ISO-8859-1', 
       'retrieve.charset'='ISO-8859-1');
