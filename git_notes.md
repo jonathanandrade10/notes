@@ -41,4 +41,4 @@
 
 **Change last commit message**
 
-`git commit --amend "New commit message"`
+`git commit --amend -m "New commit message"`
