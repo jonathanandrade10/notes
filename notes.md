@@ -15,6 +15,12 @@ val jceksPath = "jceks://hdfs/tmp/test.jceks"
 conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
 val sqoopPwd = conf.getPassword(alias).mkString
 ```
+## Sqoop
+Test a JDBC connection 
+```
+sqoop list-tables --connect jdbc:mysql://<mysql-server>/database --username <username> --password <password>
+
+```
 
 
 ## Hadoop and S3
