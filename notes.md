@@ -93,6 +93,21 @@ https://medium.com/@gaga19900329/force-caching-spark-dataframes-84d32730a21
 when and why cache a dataframe
 https://stackoverflow.com/questions/44156365/when-to-cache-a-dataframe
 
+Local spark session
+```
+  val session = SparkSession
+    .builder()
+    .appName("JobName")
+    .enableHiveSupport()
+    .config("spark.sql.parquet.binaryAsString", "true")
+    .config("mapreduce.fileoutputcommitter.marksuccessfuljobs", "false")
+    .config("spark.sql.session.timeZone", "UTC") //this is essential to avoid BST problems
+    .config("spark.driver.memory", "4g")
+    .config("spark.driver.bindAddress", "127.0.0.1")
+    .master("local")
+    .getOrCreate()
+```
+
 ## Hive
   Serialization Encoding
   ```
