@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/34224636/using-testhivecontext-hivecontext-in-unit-tests
+
+hc = new TestHiveContext(sc, false)
+
+https://db.apache.org/derby/docs/10.10/devguide/cdevdvlpinmemdb.html
+
+sc.hadoopConfiguration.set("javax.jdo.option.ConnectionURL", 
+                           "jdbc:derby:memory:db;create=true")
