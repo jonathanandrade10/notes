@@ -93,7 +93,7 @@ select from_unixtime(cast((1601825281438/1000) as bigint),"yyyy-MM-dd HH:mm:ss.S
 
 Impala query to sort it and keep the ms information
 ```
-select ms_time_field, cast(CAST(time as BIGINT) / 1000 AS TIMESTAMP) AS ms_timestamp
+select ms_time_field, cast(CAST(ms_time_field as BIGINT) / 1000 AS TIMESTAMP) AS ms_timestamp
 FROM
     db.your_table
 --results
