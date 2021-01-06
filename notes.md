@@ -83,8 +83,20 @@ Adding a new column into a nested field (Struct). This also could be used to cha
 ALTER TABLE db.table_name 
 CHANGE column column STRUCT<column1:STRUCT<final_column:STRING>>
 ```
+**String Milliseconds epoch time to timestamp**
+from_unixtime() needs a seconds precision, as the value is in milliseconds we must divide by 1000 to strip the ms part. Negative part is that we lose the ms, generating 0000 as ms time.
 
+```
+select from_unixtime(cast((1601825281438/1000) as bigint),"yyyy-MM-dd HH:mm:ss.SSSS");
+--2020-10-04 16:28:01.0000
+```
 
+We can easily make the conversion in HIVE
+
+```
+select cast(1601825281438 as timestamp)
+--2020-10-04 16:28:01.438
+```
 
 ## Spark
 Force caching and checking if the dataframe was cached
