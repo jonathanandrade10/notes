@@ -84,14 +84,25 @@ ALTER TABLE db.table_name
 CHANGE column column STRUCT<column1:STRUCT<final_column:STRING>>
 ```
 **String Milliseconds epoch time to timestamp**
-from_unixtime() needs a seconds precision, as the value is in milliseconds we must divide by 1000 to strip the ms part. Negative part is that we lose the ms, generating 0000 as ms time.
+from_unixtime() needs the precision to be in seconds, as the value is in milliseconds we must divide by 1000 to strip the ms part. Negative part of it is that we lose the ms, generating 0000 as ms time.
 
 ```
 select from_unixtime(cast((1601825281438/1000) as bigint),"yyyy-MM-dd HH:mm:ss.SSSS");
 --2020-10-04 16:28:01.0000
 ```
 
-We can easily make the conversion in HIVE
+Impala query to sort it and keep the ms information
+```
+select ms_time_field, cast(CAST(time as BIGINT) / 1000 AS TIMESTAMP) AS ms_timestamp
+FROM
+    db.your_table
+--results
+--ms_time_field - 1608249590791
+--ms_timestamp -  2020-12-17 23:59:50.790999889
+
+```
+
+Or we can easily make the conversion in HIVE
 
 ```
 select cast(1601825281438 as timestamp)
