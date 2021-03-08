@@ -39,3 +39,22 @@ spark = SparkSession \
     .master("yarn") \
     .getOrCreate()
 ```
+
+## Spark Scala
+
+**Merge Schema - empty parquet file with schema**
+
+```
+//creating a DataFrame of the data to be merged
+val df = spark.read.option("mergeSchema", "true").parquet("/path_parquet/")
+
+//get schema from DataFrame as StructType object
+val schema = df.schema
+
+//generating Empty DF from the schema merged=true
+val emptyDF = spark.createDataFrame(sc.emptyRDD[Row], schema)
+
+//Writing as a parquet file empty 
+val path = "/test_mergeschema/"
+emptyDF.repartition(1).write.mode(SaveMode.Overwrite).parquet(path)
+```
