@@ -13,7 +13,7 @@ val conf = new org.apache.hadoop.conf.Configuration()
 val alias = "password.alias"
 val jceksPath = "jceks://hdfs/tmp/test.jceks"
 conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
-val sqoopPwd = conf.getPassword(alias).mkString
+val getPwd = conf.getPassword(alias).mkString
 ```
 ## Sqoop
 Test a JDBC connection 
