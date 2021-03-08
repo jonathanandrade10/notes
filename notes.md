@@ -109,6 +109,21 @@ select cast(1601825281438 as timestamp)
 --2020-10-04 16:28:01.438
 ```
 
+**Create external table**
+
+External table having parquet file as reference for columns, then refresh/recover partitions.
+
+```
+CREATE EXTERNAL TABLE db.table
+LIKE PARQUET '/hdfspath/file.parquet'
+PARTITIONED BY (`date` STRING)
+STORED AS PARQUET
+LOCATION '/hdfspath';
+   
+REFRESH db.table;
+ALTER TABLE db.table RECOVER PARTITIONS;
+```
+
 ## Spark
 Force caching and checking if the dataframe was cached
 https://medium.com/@gaga19900329/force-caching-spark-dataframes-84d32730a21
