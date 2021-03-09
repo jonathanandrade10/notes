@@ -58,3 +58,10 @@ val emptyDF = spark.createDataFrame(sc.emptyRDD[Row], schema)
 val path = "/test_mergeschema/"
 emptyDF.repartition(1).write.mode(SaveMode.Overwrite).parquet(path)
 ```
+
+**Reduce logs - Log level error**
+```
+import org.apache.log4j.{Level, Logger}
+
+Logger.getLogger("org").setLevel(Level.ERROR)
+```
