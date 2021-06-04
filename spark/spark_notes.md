@@ -40,6 +40,27 @@ spark = SparkSession \
     .getOrCreate()
 ```
 
+**Databricks spark-xml**
+
+
+Databricks jar
+
+
+https://mvnrepository.com/artifact/com.databricks/spark-xml_2.12/0.5.0
+
+
+```
+df = spark.read.format("xml").options(rowTag="record").load("/home/folder/test.xml")
+df.show()
+```
+
+spark submit with databricks jar that will be used by the pyspark job
+
+
+```
+./bin/spark-submit --jars ~/Downloads/spark-xml_2.12-0.5.0.jar ~/path_to_pyspark/pyspark_df_to_xml.py
+```
+
 ## Spark Scala
 
 **Merge Schema - empty parquet file with schema**
