@@ -1,17 +1,39 @@
 ## Create variables on Mac
 
 ```vi ~/.bash_profile``` --old
+
 ```vi ~/.zprofile``` --actual
 
-reload the variables
+<br> reload the variables
+
 
 ```source ~/.bash_profile``` --old
+
 ```source ~/.zprofile``` --actual
+
+## Mac Dev stuff
+
+### Homebrew
+
+install homebrew and apps
+
+```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"```
+
+``` brew install git openjdk openjdk@11 python ```
+
+
+<br> View ``` brew info openjdk ``` for more details about Java setup and create a symbolic link.
+ 
+>For the system Java wrappers to find this JDK, symlink it with
+>  sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
+
+``` brew install --cask spotify slack zoom iterm2 ```
 
 
 ## Create SSH Keys
 
-**ED25519 SSH keys**
+### ED25519 SSH keys
 
 ```ssh-keygen -t ed25519 -C "<comment>"```
 
@@ -31,7 +53,8 @@ reload the variables
 
 ```pbcopy < ~/.ssh/id_ed25519.pub```
 
-**Having multiple keys u must create a config file**
+ 
+### <br>Having multiple keys u must create a config file
 
 ```
 touch config
@@ -65,20 +88,18 @@ User git
 IdentityFile ~/.ssh/id_rsa  
 ```
 
-**Testing git**
+### <br>Testing git
 
 
 ```ssh -T git@git-server.com```
 
-**To check if keys are loaded:**
+**Check if keys are loaded:**
 
 ```ssh-add -l```
 
-**To add keys to agent:**
+**Add keys to agent:**
 
 ```
 ssh-add <path_to_key> 
 eg(ssh-add ~/.ssh/id_rsa)
 ```
-
-
