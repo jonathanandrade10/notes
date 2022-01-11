@@ -1,10 +1,12 @@
 ## Create variables on Mac
 
-```vi ~/.bash_profile```
+```vi ~/.bash_profile``` --old
+```vi ~/.zprofile``` --actual
 
 reload the variables
 
-```source ~/.bash_profile```
+```source ~/.bash_profile``` --old
+```source ~/.zprofile``` --actual
 
 
 ## Create SSH Keys
