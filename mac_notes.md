@@ -30,6 +30,11 @@ install homebrew and apps
 
 ``` brew install --cask spotify slack zoom iterm2 ```
 
+### Git
+git config --global user.name "Your Name“
+
+git config --global user.email email@abc.com
+
 
 ## Create SSH Keys
 
