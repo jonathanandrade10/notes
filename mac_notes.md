@@ -11,6 +11,11 @@
 
 ```source ~/.zprofile``` --actual
 
+
+<br>This sets the environment for interactive shells
+
+```vi ~/.zshrc```
+
 ## Mac Dev stuff
 
 ### Homebrew
