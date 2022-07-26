@@ -27,7 +27,8 @@ install homebrew and apps
 ``` brew install git openjdk openjdk@11 python ```
 
 **IntelliJ IDEA JDK Setup for homebrew users**
-For anyone on a Mac with a homebrew-installed openjdk, you need to use the directory under libexec: <openjdk11_directory>/libexec/openjdk.jdk/Contents/Home. Eg.:
+For anyone on a Mac with a homebrew-installed openjdk, you need to use the directory under libexec: <openjdk11_directory>/libexec/openjdk.jdk/Contents/Home. https://stackoverflow.com/a/69410018
+Eg.:
 ``` /usr/local/Cellar/openjdk@8/1.8.0+322/libexec/openjdk.jdk/Contents/Home ```
 
 
