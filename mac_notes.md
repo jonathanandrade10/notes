@@ -40,6 +40,17 @@ Eg.:
 
 ``` brew install --cask spotify slack zoom iterm2 ```
 
+### Java and Scala versions on M1
+
+homebrew jdk 8 doesn't support M1 -> https://formulae.brew.sh/formula/openjdk@8
+
+but Java 11 does support M1 Apple Silicon -> https://formulae.brew.sh/formula/openjdk@11
+
+For Scala 2.11 the documentation recommends the version 2.11.12, which is compatible with JDK 6, 7, 8 and 11 .
+https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
+
+
+
 ### Git
 git config --global user.name "Your Name“
 
