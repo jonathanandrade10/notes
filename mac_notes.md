@@ -18,6 +18,13 @@
 
 ## Mac Dev stuff
 
+### SDKMAN
+https://sdkman.io/
+
+```curl -s "https://get.sdkman.io" | bash```
+
+**Scala** - ```sdk install scala 2.13.8```
+
 ### Homebrew
 
 install homebrew and apps
@@ -37,7 +44,7 @@ Eg.:
 >For the system Java wrappers to find this JDK, symlink it with
 >  sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
-
+**Other things**
 ``` brew install --cask spotify slack zoom iterm2 ```
 
 ### Java and Scala versions on M1
