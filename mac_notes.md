@@ -18,6 +18,15 @@
 
 ## Mac Dev stuff
 
+### Iterm
+
+Go to Preferences... > Profiles > Keys (not Preferences... > Keys)
+On current versions (3.14+) you then switch to the Key Mappings tab
+Press Presets... dropdown button.
+Select Natural Text Editing
+
+https://apple.stackexchange.com/a/293988
+
 ### SDKMAN
 https://sdkman.io/
 
