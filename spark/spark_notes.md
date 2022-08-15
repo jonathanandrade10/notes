@@ -86,3 +86,25 @@ import org.apache.log4j.{Level, Logger}
 
 Logger.getLogger("org").setLevel(Level.ERROR)
 ```
+
+**Drop Hive Partitions**
+
+The example below shows how to drop hive partitions, an external table was used in this example and it raised an error if purge=true, spark wasn't able to drop partitions and delete it's content (probably purge wasn't available on that Hive version ?). Example ran on Spark 2.3.0, it needs to be configured as purge=false and the table needs invalidate metadata to refresh its partitions.
+
+https://stackoverflow.com/a/63511779
+
+```
+//Seq[Map[String,String]]
+val partitions = catalog.listPartitions("my_database", "my_table").map(_.spec)
+
+filteredPartitions = Seq(Map("source" -> source, "hash" -> hash, "date" -> date))
+
+// If you purge data, it gets deleted immediately and isn't moved to trash.
+// This takes precedence over retainData, so even if you retainData but purge,
+// your data is gone.
+
+catalog.dropPartitions("my_database", "my_table", filteredPartitions,
+          ignoreIfNotExists = true, purge = false, retainData = true)
+
+```
+
