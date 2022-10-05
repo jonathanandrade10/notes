@@ -108,3 +108,27 @@ catalog.dropPartitions("my_database", "my_table", filteredPartitions,
 
 ```
 
+**List S3 files**
+
+```
+val s3Path = "s3a://my.bucket/folder"
+
+spark.conf.set("fs.s3a.access.key", "my_access_key")
+spark.conf.set("fs.s3a.secret.key", "my_secret_key")
+spark.conf.set("fs.s3a.endpoint", "s3.amazonaws.com")
+
+//support for bucket with dots
+spark.conf.set("fs.s3a.path.style.access", "true")
+
+
+
+import org.apache.hadoop.fs.{FileSystem, Path}
+import org.apache.hadoop.conf.Configuration
+import java.net.URI
+
+
+val fileSystem = FileSystem.get(URI.create(s3Path), new Configuration())
+val it = fileSystem.listFiles(new Path(s3Path), true)
+
+while (it.hasNext()) {  println(it.next().getPath.toUri.getPath) }
+```
