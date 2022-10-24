@@ -143,3 +143,4 @@ Caused by: org.xerial.snappy.SnappyError: [FAILED_TO_LOAD_NATIVE_LIBRARY] no nat
 https://stackoverflow.com/questions/71707903/org-xerial-snappy-snappyerror-failed-to-load-native-library-no-native-library
 
 Download newer version (1.1.8.4 or higher seems to resolve) of snappy-java and replace it with the same older jar on the folder $SPARK_HOME/jars 
+https://mvnrepository.com/artifact/org.xerial.snappy/snappy-java/1.1.8.4
