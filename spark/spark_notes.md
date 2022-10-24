@@ -132,3 +132,14 @@ val it = fileSystem.listFiles(new Path(s3Path), true)
 
 while (it.hasNext()) {  println(it.next().getPath.toUri.getPath) }
 ```
+
+## Spark Shell
+
+**Spark Shell issue on MACM1**
+
+```
+Caused by: org.xerial.snappy.SnappyError: [FAILED_TO_LOAD_NATIVE_LIBRARY] no native library is found for os.name=Mac and os.arch=aarch64
+```
+https://stackoverflow.com/questions/71707903/org-xerial-snappy-snappyerror-failed-to-load-native-library-no-native-library
+
+Download newer version (1.1.8.4 or higher seems to resolve) of snappy-java and replace it with the same older jar on the folder $SPARK_HOME/jars 
