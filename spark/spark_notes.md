@@ -144,3 +144,20 @@ https://stackoverflow.com/questions/71707903/org-xerial-snappy-snappyerror-faile
 
 Download newer version (1.1.8.4 or higher seems to resolve) of snappy-java and replace it with the same older jar on the folder $SPARK_HOME/jars 
 https://mvnrepository.com/artifact/org.xerial.snappy/snappy-java/1.1.8.4
+
+
+**NoClassDefFoundError**
+
+```
+Error: A JNI error has occurred, please check your installation and try again
+Exception in thread "main" java.lang.NoClassDefFoundError: org/slf4j/Logger
+```
+https://stackoverflow.com/questions/51531186/not-able-to-launch-spark-shell
+
+add following entry in the spark-env.sh or on ~/.zshrc
+
+```
+export SPARK_DIST_CLASSPATH=$(hadoop classpath)
+```
+
+
