@@ -21,7 +21,14 @@ Test a JDBC connection
 sqoop list-tables --connect jdbc:mysql://<mysql-server>/database --username <username> --password <password>
 
 ```
-
+Test a JDBC connection using a query to evaluate
+```
+sqoop eval -Dhadoop.security.credential.provider.path=jceks://hdfs/user/my_jceks_file.jceks \
+--connect "jdbc:mysql://mysqlurl" \
+--username my_sql_user  \
+--password-alias my_jceks.password.alias \
+--query "show databases"
+```
 
 ## Hadoop and S3
 
