@@ -95,6 +95,9 @@ git config --global user.email email@abc.com
 
 ```pbcopy < ~/.ssh/id_ed25519.pub```
 
+**SSH key password on keychain**
+
+```ssh-add --apple-use-keychain ~/.ssh/id_rsa```
  
 ### <br>Having multiple keys u must create a config file
 
