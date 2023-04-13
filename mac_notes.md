@@ -27,6 +27,11 @@ Select Natural Text Editing
 
 https://apple.stackexchange.com/a/293988
 
+### Pyenv
+
+https://realpython.com/intro-to-pyenv/#installing-pyenv
+
+
 ### SDKMAN
 https://sdkman.io/
 
