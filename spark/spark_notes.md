@@ -133,6 +133,13 @@ val it = fileSystem.listFiles(new Path(s3Path), true)
 while (it.hasNext()) {  println(it.next().getPath.toUri.getPath) }
 ```
 
+**Get dataframe differences**
+```
+//Return a new DataFrame containing rows in this DataFrame but not in another DataFrame while preserving duplicates.
+df.exceptAll(df_prod).show()
+```
+
+
 ## Spark Shell
 
 **Spark Shell issue on MACM1**
