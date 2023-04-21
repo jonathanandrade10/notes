@@ -82,6 +82,8 @@ hadoop distcp \
 ```
 
 
+
+
 ## Impala
 
 Adding a new column into a nested field (Struct). This also could be used to change the type or name of the fields, it recreates the nested structure again with the new values.
@@ -129,6 +131,13 @@ LOCATION '/hdfspath';
    
 REFRESH db.table;
 ALTER TABLE db.table RECOVER PARTITIONS;
+```
+
+**Query columns using a specific timezone**
+
+```
+--converts now() on Europe/London to UTC
+SELECT  TO_UTC_TIMESTAMP(now(), 'Europe/London')  as column_name; 
 ```
 
 ## Spark
