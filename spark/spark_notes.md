@@ -154,11 +154,13 @@ val df = spark.read.option("mergeSchema", "true").parquet(bucket + path)
 ```
 
 **Libs for Spark S3**
+```
 aws-java-sdk-1.11.271.jar
 aws-java-sdk-core-1.11.271.jar
 aws-java-sdk-dynamodb-1.11.171.jar
 aws-java-sdk-s3-1.11.171.jar
 hadoop-aws-3.1.1.jar
+```
 
 ## Spark Shell
 
