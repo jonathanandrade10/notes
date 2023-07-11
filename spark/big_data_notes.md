@@ -15,6 +15,19 @@ val jceksPath = "jceks://hdfs/tmp/test.jceks"
 conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
 val getPwd = conf.getPassword(alias).mkString
 ```
+
+**Jceks file creation for S3 creds**
+
+Access key = fs.s3a.access.key
+Secret key = fs.s3a.secret.key
+The Access and Secret keys needs to be on the same file, so that the credentials will be stored on the same file using two keys, one for 
+
+hadoop credential create fs.s3a.access.key -value 123Abc \
+  -provider jceks://file/Users/your_user_here/my_jceks_file.jceks
+ 
+hadoop credential create fs.s3a.secret.key -value 123CdBlah \
+  -provider jceks://file/Users/your_user_here/my_jceks_file.jceks
+
 ## Sqoop
 Test a JDBC connection 
 ```
