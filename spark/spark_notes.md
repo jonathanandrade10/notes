@@ -139,6 +139,19 @@ while (it.hasNext()) {  println(it.next().getPath.toUri.getPath) }
 df.exceptAll(df_prod).show()
 ```
 
+**Read data from S3 - Jceks credentials**
+```
+val s3JceksFullPath =  "jceks://hdfs/my_folder/my_jceks_key_value.jceks"
+
+val hadoopConf = spark.sparkContext.hadoopConfiguration
+hadoopConf.set("hadoop.security.credential.provider.path", s"$s3JceksFullPath")
+hadoopConf.set("spark.hadoop.hadoop.security.credential.provider.path", s"$s3JceksFullPath")
+
+val bucket = "s3a://my-s3-bucket"
+val path = "/my-data"
+
+val df = spark.read.option("mergeSchema", "true").parquet(bucket + path)
+```
 
 ## Spark Shell
 
