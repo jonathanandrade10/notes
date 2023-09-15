@@ -61,6 +61,34 @@ spark submit with databricks jar that will be used by the pyspark job
 ./bin/spark-submit --jars ~/Downloads/spark-xml_2.12-0.5.0.jar ~/path_to_pyspark/pyspark_df_to_xml.py
 ```
 
+**Spark 3.2.0 - Easy Nested schema cast**
+```
+from pyspark.sql import functions as F
+
+from pyspark.sql import types as T
+
+#create mystructfield.column_level_1.my_column2 from column mystructfield.column_level_1.my_column, cast as String
+
+df2 = df.withColumn('mystructfield', F.col('mystructfield').withField('column_level_1.my_column2', F.col('mystructfield.column_level_1.my_column').cast('String')))
+
+
+```
+
+**Spark Jceks credentials using PySpark**
+```
+alias = 'myalias'
+
+hadoop_conf = spark.sparkContext._jsc.hadoopConfiguration()
+
+sqoop_jceks = 'jceks://file/my_path/my_file.jceks'
+
+hadoop_conf.set('hadoop.security.credential.provider.path', sqoop_jceks)
+
+sqoop_pwd = ''.join(
+    list(hadoop_conf.getPassword(alias))
+    )
+```
+
 ## Spark Scala
 
 **Merge Schema - empty parquet file with schema**
