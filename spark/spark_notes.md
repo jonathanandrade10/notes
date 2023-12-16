@@ -91,6 +91,12 @@ sqoop_pwd = ''.join(
 
 ## Spark Scala
 
+**Timestamp string**
+```
+df_date_part.withColumn("date", coalesce(date_format((unix_timestamp(df_date_part("time"), "yyyy-MM-dd HH:mm:ss")).cast("timestamp"), "yyyy-MM-dd HH"), lit("NULL")))
+
+```
+
 **Merge Schema - empty parquet file with schema**
 
 ```
