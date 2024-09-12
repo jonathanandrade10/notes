@@ -2,7 +2,7 @@
 
 ### Refresh assume role tokens
 
-In order to extend life of assumed role tokens, a role can have a maxSessionDuration of 12 hours (maximum) and add DurationSeconds parameter when using boto3.
+In order to extend life of assumed role tokens, a role can be set to a maxSessionDuration of 12 hours (maximum) and to add custom durations DurationSeconds parameter needs to be set when using boto3.
 
 Other options are, to create a credentials file or use the RefreshableCredentials boto3 class.
 
